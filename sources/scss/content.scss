@@ -1,0 +1,153 @@
+.events {
+	padding: 50px 0;
+}
+
+.locations {
+	&__list {
+		@include flexbox();
+		@include flex-wrap(wrap);
+		margin: 0 -5px;
+		.item {
+			position: relative;
+			height: 200px;
+			width: calc((100% / 5) - 10px);
+			margin: 5px;
+			//temp
+			background-image: url("../images/card-bg.jpg");
+			background-size: cover;
+			background-position: center center;
+			&__description {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				padding: 13px 10px;
+				background-color: rgba(0,101,189, .8);
+				transition: .15s ease;
+				.title {
+					max-width: 100%;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+					font-size: 14px;
+					line-height: 14px;
+					color: $white;
+				}
+			}
+			&:hover {
+				outline: 1px solid $primary;
+				.item__description {
+					background-color: rgba(0,101,189, 1);
+				}
+			}
+		}
+		@media screen and (max-width: $screen-sm-max) {
+			.item {
+				width: calc((100% / 3) - 10px);
+			}
+		}
+		@media screen and (max-width: $screen-xs-max) {
+			.item {
+				width: calc((100% / 2) - 10px);
+			}
+		}
+		@media screen and (max-width: $screen-2xs-max) {
+			margin: 0;
+			.item {
+				width: 100%;
+				margin: 5px 0;
+			}
+		}
+	}
+}
+
+.pages {
+	&__list {
+		.item {
+			@include flexbox();
+			@include justify-content(space-between);
+			@include align-items(center);
+			padding: 14px 0 11px;
+			border-bottom: 1px solid #acacac;
+			&__title {
+				padding-right: 16px;
+				color: $primary;
+				font-size: 18px;
+				font-weight: 700;
+			}
+			&:first-child {
+				border-top: 1px solid #acacac;
+			}
+		}
+	}
+}
+
+.user {
+	padding: 40px 0 100px;
+	&__header {
+		@include flexbox();
+		@include justify-content(space-between);
+		@include align-items(center);
+		margin: 0 0 50px;
+		padding: 0 0 10px;
+		border-bottom: 1px solid #dfdfdf;
+		.left, .right {
+			font-size: 22px;
+			font-weight: 700;
+			color: #4e4e4e;
+		}
+	}
+	&__inner {
+		@include flexbox();
+		@include justify-content(space-between);
+		@include align-items(flex-start);
+		.form {
+			min-width: 300px;
+			&__item {
+				position: relative;
+				margin-bottom: 20px;
+				label {
+					display: block;
+					margin: 0 0 4px;
+					font-size: 14px;
+					color: #acacac;
+				}
+				.user-error {
+					position: absolute;
+					top: 60px;
+					font-size: 12px;
+					color: $red;
+				}
+			}
+			&__actions {
+				margin-top: 40px;
+			}
+		}
+		.ticket {
+			margin-top: 18px;
+			&__qr {
+				margin-bottom: 30px;
+			}
+		}
+	}
+	@media screen and (max-width: $screen-xs-max) {
+		&__inner {
+			@include flex-direction(column-reverse);
+			.form {
+				width: 100%;
+			}
+			.ticket {
+				width: 100%;
+				margin: 0 0 32px;
+				&__qr {
+					display: block;
+					margin: 0 auto 30px;
+				}
+				&__actions {
+					max-width: 250px;
+					margin: 0 auto;
+				}
+			}
+		}
+	}
+}
