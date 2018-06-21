@@ -332,11 +332,14 @@ input[type="password"] {
 					transform: translateX(-50%);
 					@include flexbox();
 					@include align-items(center);
-					@include justify-content(space-between);
+					@include justify-content(center);
 					width: 50px;
 					height: 50px;
 					border-radius: 50%;
 					background-color: $white;
+					&__pic {
+						display: none;
+					}
 				}
 				.title {
 					margin: 0 0 20px;
@@ -350,6 +353,38 @@ input[type="password"] {
 				}
 				.actions {
 					margin-top: 8px;
+					a {
+						&:hover {
+							color: #efefef;
+						}
+					}
+				}
+			}
+			&--music {
+				.event__description {
+					.category {
+						&__pic--music {
+							display: block;
+						}
+					}
+				}
+			}
+			&--party {
+				.event__description {
+					.category {
+						&__pic--party {
+							display: block;
+						}
+					}
+				}
+			}
+			&--video {
+				.event__description {
+					.category {
+						&__pic--video {
+							display: block;
+						}
+					}
 				}
 			}
 			&:hover {
@@ -401,6 +436,17 @@ input[type="password"] {
 					.event__description {
 						background-color: rgba(60,138,46,1);
 					}
+				}
+			}
+		}
+	}
+	@media screen and (max-width: $screen-xs-max) {
+		&__list {
+			.event {
+				height: 280px;
+				&__description {
+					transform: translateY(0);
+					background-color: rgba(0,101,189,.8);
 				}
 			}
 		}
@@ -526,7 +572,30 @@ input[type="password"] {
 		bottom: 30px;
 	}
 	.swiper-container {
+		.swiper-button-next,
+		.swiper-button-prev {
+			width: 80px;
+			height: 80px;
+			margin-top: -40px;
+		}
+		.swiper-button-next {
+			right: -10px;
+			background-image: url("../images/arrow-right--lg.png");
+		}
+		.swiper-button-prev {
+			left: -10px;
+			background-image: url("../images/arrow-left--lg.png");
+			border-radius: 50%;
+			transition: .15s ease;
+			cursor: pointer;
+		}
 		&--blue {
+			.swiper-button-prev {
+				background-color: rgba(0, 101, 189, .5);
+				&:hover {
+					background-color: rgba(0, 101, 189, .8);
+				}
+			}
 			.swiper-slide {
 				&:after {
 					background-color: rgba(0, 101, 189, .9);
@@ -534,6 +603,12 @@ input[type="password"] {
 			}
 		}
 		&--green {
+			.swiper-button-prev {
+				background-color: rgba(60,138,46, .5);
+				&:hover {
+					background-color: rgba(60,138,46, .8);
+				}
+			}
 			.swiper-slide {
 				&:after {
 					background-color: rgba(60,138,46,.9);
@@ -541,10 +616,37 @@ input[type="password"] {
 			}
 		}
 		&--red {
+			.swiper-button-prev {
+				background-color: rgba(170,39,47, .5);
+				&:hover {
+					background-color: rgba(170,39,47, .8);
+				}
+			}
 			.swiper-slide {
 				&:after {
 					background-color: rgba(170,39,47, .9);
 				}
+			}
+		}
+	}
+	@media screen and (max-width: $screen-xs-max) {
+		.swiper-container {
+			.swiper-button-next,
+			.swiper-button-prev {
+				width: 20px;
+				height: 40px;
+				margin-top: -40px;
+				background-size: 14px 28px;
+			}
+			.swiper-button-prev {
+				left: 4px;
+				background-color: transparent;
+				&:hover {
+					background-color: transparent;
+				}
+			}
+			.swiper-button-next {
+				right: 4px;
 			}
 		}
 	}
@@ -595,7 +697,7 @@ input[type="password"] {
 
 // Swiper container
 
-.swiper-container {
+.swiper-container, .event-banner {
 	height: 600px;
 	
 	.container {
@@ -603,6 +705,7 @@ input[type="password"] {
 	}
 	
 	.swiper-slide {
+		overflow: hidden;
 		position: relative;
 		//temp
 		background-image: url("../images/swiper-bg.jpg");
@@ -623,6 +726,12 @@ input[type="password"] {
 				margin: 0 0 30px;
 				font-size: 50px;
 				font-weight: 700;
+				text-transform: uppercase;
+				color: $white;
+			}
+			.description {
+				font-size: 22px;
+				font-weight: 400;
 				text-transform: uppercase;
 				color: $white;
 			}
@@ -647,13 +756,44 @@ input[type="password"] {
 		&:after {
 			content: '';
 			position: absolute;
-			top: 100%;
-			left: 22%;
+			top: 0;
+			bottom: 0;
+			left: 57%;
 			width: 100%;
-			height: 180%;
-			transform: rotate(-65deg) translateX(50%);
-			/* transform: translateX(50%); */
+			transform: skewX(-30deg);
 			background-color: rgba(60,138,46,.9);
+		}
+	}
+	
+	@media screen and (max-width: $screen-sm-max) {
+		height: 320px;
+		.swiper-slide {
+			&__inner {
+				padding: 12px 48px 70px;
+				@include align-items(center);
+				.title {
+					text-align: center;
+					font-size: 32px;
+				}
+				.description {
+					text-align: center;
+				}
+			}
+			&:after {
+				left: 0;
+				transform: skewX(0deg);
+				background-color: rgba(60,138,46,.75);
+			}
+		}
+	}
+	@media screen and (max-width: $screen-xs-max) {
+		.swiper-slide {
+			&__inner {
+				padding: 12px 18px 70px;
+				.title {
+					font-size: 20px;
+				}
+			}
 		}
 	}
 }
