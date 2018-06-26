@@ -225,6 +225,9 @@
 					@include justify-content(space-between);
 					@include align-items(center);
 					margin-bottom: 20px;
+					.close {
+						max-width: 24px;
+					}
 				}
 				.search {
 					input {
