@@ -289,7 +289,7 @@ to{transform:rotate(360deg)}
 .user__inner .ticket__qr{display:block;margin:0 auto 30px}
 .user__inner .ticket__actions{max-width:250px;margin:0 auto}
 }
-.event-page .main .event-banner .actions{position:absolute;top:0;left:0}
+.event-page .main .event-banner .actions{position:absolute;top:0;left:0;z-index:2}
 .event-page .main .event-banner .actions__item{display:flex;-webkit-justify-content:center;-moz-justify-content:center;-ms-justify-content:center;justify-content:center;-ms-flex-pack:center;-webkit-align-items:center;-moz-align-items:center;-ms-align-items:center;align-items:center;width:50px;height:40px;background-color:rgba(0,0,0,.7);transition:.15s ease;cursor:pointer}
 .event-page .main .event-banner .actions__item:hover{background-color:rgba(0,0,0,.9)}
 .event-page .main .summary{padding:50px 0 64px}
