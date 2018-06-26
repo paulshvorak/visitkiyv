@@ -34,16 +34,44 @@
 							<a href="#" class="nav__item-link nav__item-signup link link--underline">Регистрация</a>
 						</li>
 					</ul>
-					<div class="info">Tourist info <img src="app/images/phone--blue.png" alt="phone"> <span>1551</span>
-					</div>
+					<div class="info">Tourist info <img src="app/images/phone--blue.png" alt="phone"> <span>1551</span></div>
 				</div>
-				<div class="menu">
+				<div class="js-menu menu">
 					<span></span>
 					<span></span>
 					<span></span>
 				</div>
 			</div>
-			<div class="header__item header__bottom">
+			<div class="header__item header__bottom js-sidebar">
+				<div class="nav--mobile">
+					<div class="top">
+						<a href="#" class="logo">
+							<img src="app/images/logo.png" alt="logo">
+						</a>
+						<div class="js-sidebar-menu__close close">
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<div class="search">
+						<input type="text" placeholder="Поиск...">
+					</div>
+					<div class="lang">
+						<select name="" id="">
+							<option value="en">en</option>
+							<option value="ru">ru</option>
+						</select>
+					</div>
+					<ul class="nav">
+						<li class="nav__item">
+							<a href="#" class="nav__item-link nav__item-kiev link link--underline">Мой Киев</a>
+						</li>
+						<li class="nav__item">
+							<a href="#" class="nav__item-link nav__item-signup link link--underline">Регистрация</a>
+						</li>
+					</ul>
+					<!--<div class="info">Tourist info <img src="app/images/phone&#45;&#45;blue.png" alt="phone"> <span>1551</span></div>-->
+				</div>
 				<ul class="nav">
 					<li class="nav__item">
 						<a href="#" class="nav__item-link link link--underline">uefa</a>
@@ -70,7 +98,13 @@
 						<a href="#" class="nav__item-link link link--underline">как добраться</a>
 					</li>
 				</ul>
-				<div class="lang">lang</div>
+				<div class="lang lang--desktop">
+					<div class="lang__current">en <img src="app/images/arr-down.svg" alt="arrow"></div>
+					<div class="lang__list">
+						<div class="item">en</div>
+						<div class="item">ru</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</header>

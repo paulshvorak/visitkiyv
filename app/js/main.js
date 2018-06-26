@@ -7,11 +7,11 @@
 	var page = document.querySelector('.js-page');
 
 	function showSidebar() {
-		sidebar.classList.add('sidebar-menu--active');
+		header.classList.add('open');
 	}
 
 	function hideSidebar() {
-		sidebar.classList.remove('sidebar-menu--active');
+		header.classList.remove('open');
 	}
 
 	function toggleScroll() {
@@ -28,16 +28,5 @@
 		toggleScroll();
 	}
 
-	window.onscroll = function() {
-		setHeaderFixed();
-	};
-
-	function setHeaderFixed() {
-		if (window.scrollY > 0) {
-			header.classList.add('header--active');
-		} else {
-			header.classList.remove('header--active');
-		}
-	}
 
 })();

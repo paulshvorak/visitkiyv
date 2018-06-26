@@ -176,6 +176,14 @@ input[type="password"] {
 			border-color: darken($green, 5%);
 		}
 	}
+	&--orange {
+		border-color: $orange;
+		background-color: $orange;
+		&:hover {
+			background-color: darken($orange, 5%);
+			border-color: darken($orange, 5%);
+		}
+	}
 	&--blue {
 		border-color: $blue;
 		background-color: $blue;
@@ -677,13 +685,13 @@ input[type="password"] {
 				background-position: 0 -90px;
 			}
 		}
-		&:nth-child(2) {
+		&:nth-child(3) {
 			background-position: 0 -120px;
 			&:hover {
 				background-position: 0 -150px;
 			}
 		}
-		&:nth-child(3) {
+		&:nth-child(2) {
 			background-position: 0 0;
 			&:hover {
 				background-position: 0 -30px;

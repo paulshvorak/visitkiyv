@@ -145,26 +145,6 @@
 				-o-transform-origin: left center;
 				transform-origin: left center;
 			}
-			&.open span:nth-child(1) {
-				-webkit-transform: rotate(45deg);
-				-moz-transform: rotate(45deg);
-				-o-transform: rotate(45deg);
-				transform: rotate(45deg);
-				top: -2px;
-				left: 3px;
-			}
-			&.open span:nth-child(2) {
-				width: 0%;
-				opacity: 0;
-			}
-			&.open span:nth-child(3) {
-				-webkit-transform: rotate(-45deg);
-				-moz-transform: rotate(-45deg);
-				-o-transform: rotate(-45deg);
-				transform: rotate(-45deg);
-				top: 16px;
-				left: 3px;
-			}
 		}
 	}
 	&__bottom {
@@ -173,6 +153,44 @@
 		.nav {
 			&__item {
 				text-transform: uppercase;
+			}
+			&--mobile {
+				display: none;
+			}
+		}
+		.lang {
+			position: relative;
+			&:hover {
+				&>.lang__list {
+					display: block;
+				}
+			}
+			&__current {
+				@include flexbox();
+				@include align-items(center);
+				padding: 4px 8px 0 8px;
+				text-transform: uppercase;
+				img {
+					margin-left: 4px;
+				}
+			}
+			&__list {
+				display: none;
+				z-index: 2;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
+				.item {
+					padding: 4px 8px;
+					text-transform: uppercase;
+					background-color: rgba(0,0,0,.75);
+					color: $white;
+					cursor: pointer;
+					&:hover {
+						background-color: rgba(0,0,0,.85);
+					}
+				}
 			}
 		}
 	}
@@ -188,14 +206,69 @@
 			}
 		}
 		&__bottom {
+			display: block;
 			position: fixed;
 			z-index: 10;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
+			padding: 10px 12px;
 			background-color: rgba(0,101,189,.9);
+			color: $white;
 			transform: translateX(100%);
+			transition: .15s ease;
+			.nav--mobile {
+				display: block;
+				.top {
+					@include flexbox();
+					@include justify-content(space-between);
+					@include align-items(center);
+					margin-bottom: 20px;
+				}
+				.search {
+					input {
+						background-color: rgba(0,0,0, .3);
+					}
+				}
+				.lang {
+					margin-top: 12px;
+					text-align: center;
+					select {
+						padding: 4px 8px;
+						border: none;
+						background-color: rgba(0,0,0, .3);
+						color: $white;
+					}
+				}
+			}
+			.nav {
+				@include flexbox();
+				@include flex-direction(column);
+				@include align-items(center);
+				&__item {
+					padding: 10px 0;
+					&:not(:last-child) {
+						border-right: none;
+					}
+					a {
+						&:hover {
+							color: darken($white, 10%);
+						}
+					}
+					
+				}
+			}
+			.lang--desktop {
+				display: none;
+			}
+		}
+		&.open {
+			.header {
+				&__bottom {
+					transform: translateX(0%);
+				}
+			}
 		}
 	}
 }
